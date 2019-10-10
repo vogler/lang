@@ -1,0 +1,42 @@
+[submodule "haskell/haskell-fm"]
+	path = haskell/haskell-fm
+	url = https://github.com/vesalvojdani/haskell-fm.git
+[submodule "ocaml/opam-repository"]
+	path = ocaml/opam-repository
+	url = https://github.com/vogler/opam-repository.git
+[submodule "ocaml/batteries-included"]
+	path = ocaml/batteries-included
+	url = https://github.com/vogler/batteries-included.git
+[submodule "ocaml/merlin"]
+	path = ocaml/merlin
+	url = https://github.com/vogler/merlin.git
+[submodule "ocaml/dune"]
+	path = ocaml/dune
+	url = https://github.com/vogler/dune.git
+[submodule "ocaml/ppx_distr_guards"]
+	path = ocaml/ppx_distr_guards
+	url = https://github.com/vogler/ppx_distr_guards.git
+[submodule "ocaml/ppx"]
+	path = ocaml/ppx
+	url = https://github.com/vogler/ppx.git
+[submodule "ocaml/nosetup"]
+	path = ocaml/nosetup
+	url = https://github.com/vogler/nosetup.git
+[submodule "ocaml/ppx_import-omp/ppx_import"]
+	path = ocaml/ppx_import-omp/ppx_import
+	url = https://github.com/vogler/ppx_import
+[submodule "ocaml/ppx_import-omp/ppx_deriving"]
+	path = ocaml/ppx_import-omp/ppx_deriving
+	url = https://github.com/diml/ppx_deriving.git
+[submodule "ocaml/ppx_meta"]
+	path = ocaml/ppx_meta
+	url = https://github.com/vogler/ppx_meta.git
+[submodule "ocaml/irmin"]
+	path = ocaml/irmin
+	url = https://github.com/vogler/irmin.git
+[submodule "ocaml/ppx_show"]
+	path = ocaml/ppx_show
+	url = https://github.com/diml/ppx_show.git
+[submodule "coq/masterprojekt-paula-welzenbach"]
+	path = coq/masterprojekt-paula-welzenbach
+	url = https://git8.cs.fau.de/theses/masterprojekt-paula-welzenbach.git
