@@ -1,0 +1,7 @@
+(jbuild_version 1)
+
+(executable
+ ((name test)
+  (libraries (cil))
+  (preprocess (pps (ppx_import ppx_deriving.std))) ; opam pin add ppx_deriving https://github.com/diml/ppx_deriving.git\#restore-compat+omp-driver-integration
+ ))
