@@ -52,3 +52,10 @@ interface D {
 type t2 = C | D
 const e2: t2[] = [{kind: "C", content: 12}, {kind: "D", content: "foo"}] // note that ': t2[]' is required and that we can't just assign e2f.
 // This is very verbose compared to OCaml's `type t2 = C of int | D of string;; [C 12; D "foo"]`
+// Luckily we can just flatten it to the following (interface creates a name, type does not, see https://www.typescriptlang.org/docs/handbook/advanced-types.html#interfaces-vs-type-aliases):
+type t3 = { kind: "C", content: number } | { kind: "D", content: string }
+const e3: t3[] = [{kind: "C", content: 12}, {kind: "D", content: "foo"}]
+// We could also pull out the kind field into a tuple:
+type t4 = ["C", { content: number }] | ["D", { content: string }]
+const e4: t4[] = [["C", {content: 12}], ["D", {content: "foo"}]]
+// Seems like the best option to me (closest to OCaml, clearer what we descriminate by, no extra field that shouldn't be part of the object since it only represents its type (e.g. relevant for generic print))
