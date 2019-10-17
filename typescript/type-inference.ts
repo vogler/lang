@@ -7,3 +7,7 @@ const id_gen = <a> (x:a) => x // <a>(x: a) => a
 const _2 = [id_gen(1), id_gen('x')] // (string | number)[]
 const _3 = [1, 'x'] // (string | number)[]
 const _4: [1, 'x'] = [1, 'x'] // guess tuples always need a type annotation, otherwise it's inferred as a list
+
+const _5/*: 1 */ = 1 // 1
+const _6/*: number */ = 1+1 // operations on literal types widen
+const _7/*: string */ = 1+'1' // JS coercions to string
