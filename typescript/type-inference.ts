@@ -11,3 +11,8 @@ const _4: [1, 'x'] = [1, 'x'] // guess tuples always need a type annotation, oth
 const _5/*: 1 */ = 1 // 1
 const _6/*: number */ = 1+1 // operations on literal types widen
 const _7/*: string */ = 1+'1' // JS coercions to string
+
+// optional arguments have to be filled from left to right, no implicit union
+const opt_args = (a?: number, b?: string) => [a, b]
+opt_args(12) // [ 12, undefined ]
+// opt_args('a') // Argument of type '"a"' is not assignable to parameter of type 'number'
