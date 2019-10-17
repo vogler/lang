@@ -7,6 +7,15 @@ const l4/*: 0 | 2 */= 1 && 2 // type should just be 2
 // function arguments always need a type annotation, otherwise they're `any`?
 const l5/*: (x: any) => 1 | 2 */= x => x == 1 && x == 2 ? 1 : 2 // why can it not infer that x is type `number` instead of `any`? Also, return type should be `2` since it's already syntactically clear that the condition is false (no matter what x's type is).
 // const l6 = (x:number) => x == 1 && x == 2 ? 1 : 2 // error on `x == 2`: This condition will always return `false` since the types `1` and `2` have no overlap.
+// very nice for functions:
+const warn = (category: 'undefined behavior' | 'int overflow', message?: string) => console.log(category, message)
+warn('undefined behavior'); warn('undefined behavior', 'foo');
+// We could simulate literal types in OCaml with polymorphic variants, but it's not really nice (need to define our own to_string function if we don't want the ` and _ printed; a generic function would need to encode strings into valid identifier names):
+// type category = [`undefined_behavior | `int_overflow] [@@deriving show]
+// let warn ?message category = print_endline (show_category category ^ " " ^ (message |? ""))
+// val warn : ?message:string -> category -> unit = <fun>
+// warn ~message:"foo" `undefined_behavior (* prints '`undefined_behavior foo' *)
+// warn `undefined_behavior (* prints '`undefined_behavior' *)
 
 // # product types / tuples
 // OCaml needs no type annotation for tuples: `let p1(*: int * string *)= 12, "foo" in let p1a, p1b = p1`.
