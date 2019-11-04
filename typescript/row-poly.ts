@@ -23,7 +23,7 @@ type bf = [b['foo'], b['bar']] // [string, a], Property 'baz' does not exist on 
 // type is closed, no supertypes allowed:
 const x5: b = { foo: '', bar: 0, boo: ''} // ... 'boo' does not exist in type 'b'
 // but union is propagated down on fields of the same name (bar: number | string):
-const x6: b = { foo: '', bar: 0, baz: ''}
+const x6: b = { foo: '', bar: 0, baz: ''} // note that bar: number is only in the first choice for b and baz only in the second; also baz is ok here, but it does not exist in bf!? Shouldn't `bf['baz']` be `string?` (`string | undefined`)?
 
 // And intersections (types in comment, 'same' if not reduced):
 type c = string & number // never
