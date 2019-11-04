@@ -29,3 +29,8 @@ const x6: b = { foo: '', bar: 0, baz: ''} // note that bar: number is only in th
 type c = string & number // never
 type d = { foo: string, bar: number } & { foo: string, bar: string, baz: string } // same
 type df = [d['foo'], d['bar'], d['baz']] // [string, never, string], accessing d['no'] is a type-error ('Property 'no' does not exist on type 'd')
+
+// For union (|) and intersection (&) on object types a and b, the operation is done on the intersection of field names of a and b.
+// Fields `x:t` that are only present in either a or b are treated a bit counter-intuitively:
+// For `type c = a | b`, those fields will not be visible in c but still be there as `x:t?` so that the type can be narrowed again (needed for discriminated unions).
+// For `type c = a & b`, those fields will be visible in c as `x:t`.
